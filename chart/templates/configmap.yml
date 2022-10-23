@@ -3,8 +3,8 @@ kind: ConfigMap
 metadata:
   name: plex-config
 data:
-  PUID: 1000
-  PGID: 1000
+  PUID: "1000"
+  PGID: "1000"
   VERSION: {{ .Values.plexVersion }}
   # TODO figure out what this is for
   #PLEX_CLAIM: optional

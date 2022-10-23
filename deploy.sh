@@ -11,6 +11,7 @@ if [ "$exists" == "1" ]; then
 fi
 
 helm $COMMAND \
+  -n $NAMESPACE \
   $NAME \
   ./chart \
   -f ./chart/values.yml
