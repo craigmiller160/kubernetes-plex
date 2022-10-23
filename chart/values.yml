@@ -1,7 +1,19 @@
-name: plex-media-server
-imageTag: latest
-plexVersion: public
-volumeNames:
-  config: {{ .Values.name }}-config
-  tv: {{ .Values.name }}-tv
-  movies: {{ .Values.name }}-movies
+app-deployment:
+  appName: plex-media-server
+  image: lscr.io/linuxserver/plex:latest
+  configMaps:
+    - plex-media-server
+  volumes:
+    - name: plex-config
+      type: PVC
+      deploymentMountPath: /config
+    - name: plex-movies
+      type: HostPath
+      hostPath: "/home/craig/MediaDrive/Media/Movies"
+      deploymentMountPath: /movies
+    - name: plex-tv
+      type: HostPath
+      hostPath: "/home/craig/MediaDrive/Media/TV Shows"
+      deploymentMountPath: /tv
+  ports:
+    - containerPort: 80
