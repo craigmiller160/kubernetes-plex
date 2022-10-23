@@ -13,3 +13,8 @@ spec:
     spec:
       containers:
         - name: {{ .Values.name }}
+          image: "lscr.io/linuxserver/plex:{{ .Values.imageTag }}"
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: {{ .Values.name }}
