@@ -18,3 +18,10 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ .Values.name }}
+          volumeMounts:
+            - mountPath: /config
+              name: {{ tpl .Values.volumeNames.config . }}
+      volumes:
+        - name: {{ tpl .Values.volumeNames.config . }}
+          persistentVolumeClaim:
+            claimName: {{ tpl .Values.volumeNames.config . }}

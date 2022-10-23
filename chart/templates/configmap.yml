@@ -1,8 +1,10 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Values.name }}
+  name: {{ tpl .Values.volumeNames.config . }}
 data:
   PUID: 1000
   PGID: 1000
   VERSION: {{ .Values.plexVersion }}
+  # TODO figure out what this is for
+  #PLEX_CLAIM: optional

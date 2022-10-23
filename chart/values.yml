@@ -1,3 +1,7 @@
 name: plex-media-server
 imageTag: latest
 plexVersion: public
+volumeNames:
+  config: {{ .Values.name }}-config
+  tv: {{ .Values.name }}-tv
+  movies: {{ .Values.name }}-movies
