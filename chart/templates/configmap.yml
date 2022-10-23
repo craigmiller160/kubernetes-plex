@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: plex-media-server
+  name: {{ .Values.app-deployment.appName }}
 data:
   PUID: "1000"
   PGID: "1000"
