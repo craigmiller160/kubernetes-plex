@@ -1,3 +1,4 @@
+plexVersion: public
 app-deployment:
   appName: plex-media-server
   image: lscr.io/linuxserver/plex:latest
